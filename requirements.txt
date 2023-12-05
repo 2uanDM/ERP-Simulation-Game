@@ -1,2 +1,5 @@
 streamlit
 httpx
+beautifulsoup4
+lxml
+polars

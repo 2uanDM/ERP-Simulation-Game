@@ -2,12 +2,11 @@ import httpx
 
 from lxml import etree
 
-url = "https://@e04.sapucc.in.tum.de/odata/907/Inventory"
-certificate_path = "cert.crt"
+url = "https://e04.sapucc.in.tum.de/odata/907/Company_Valuation"
 
 try:
     with httpx.Client() as client:
-        response = client.get(url, follow_redirects=True, auth=('V_4', '123456'))
+        response = client.get(url, follow_redirects=True, auth=('A_5', '123456'))
         response.raise_for_status()
 
         root = etree.fromstring(response.text)

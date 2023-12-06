@@ -17,7 +17,10 @@ class HomePage():
         self.init_ui()
 
         # Input the config of the simulation
-        self.input_config()
+        self.role = st.sidebar.radio("Your Role", options=['Admin', 'Client'], index=1)
+
+        if self.role == 'Admin':
+            self.input_config()
 
     def init_ui(self):
         st.write('---')
@@ -34,7 +37,8 @@ class HomePage():
             "day_per_round": self.day_per_round,
             "data_source_link": self.data_source_link,
             'username': self.username,
-            'password': self.password
+            'password': self.password,
+            'auto_refresh': self.auto_refresh
         }
 
         print(f"==>> new_config: {new_config}")
@@ -64,6 +68,9 @@ class HomePage():
         self.username = st.sidebar.text_input("Username", value=config["username"])
 
         self.password = st.sidebar.text_input("Password", value=config["password"], type="password")
+
+        self.auto_refresh = st.sidebar.number_input(
+            "Refresh data after (s)", value=config["auto_refresh"], step=1, format="%d")
 
         print(f"==>> self.sim_round: {self.sim_round}")
         print(f"==>> self.day_per_round: {self.day_per_round}")

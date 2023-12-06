@@ -13,8 +13,8 @@ from bs4 import BeautifulSoup as bs
 from typing import List
 from pydantic import BaseModel
 
-from utils.db.schema import Market
-from utils.db.init_db import init_db
+from database.schema import Market
+from database.init_db import init_db
 
 
 with open('configs/games.json', 'r') as f:

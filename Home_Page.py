@@ -33,6 +33,8 @@ class HomePage():
             "round": self.sim_round,
             "day_per_round": self.day_per_round,
             "data_source_link": self.data_source_link,
+            'username': self.username,
+            'password': self.password
         }
 
         print(f"==>> new_config: {new_config}")
@@ -59,9 +61,9 @@ class HomePage():
 
         self.data_source_link = st.sidebar.text_input("Data source link", value=config["data_source_link"])
 
-        self.username = st.sidebar.text_input("Usernames", value=config["usernames"])
+        self.username = st.sidebar.text_input("Username", value=config["username"])
 
-        self.password = st.sidebar.text_input("Passwords", value=config["passwords"], type="password")
+        self.password = st.sidebar.text_input("Password", value=config["password"], type="password")
 
         print(f"==>> self.sim_round: {self.sim_round}")
         print(f"==>> self.day_per_round: {self.day_per_round}")
